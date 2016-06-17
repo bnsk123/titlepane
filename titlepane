@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+ 
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+
+	<script>
+require(["dijit/TitlePane", "dojo/dom", "dojo/dom-construct", "dojo/_base/window",
+"dojox/layout/TableContainer","dijit/dijit","dijit/form/TextBox","dojo/domReady!"],
+ function(TitlePane, dom,domConstruct,win,TableContainer,dijit,TextBox){
+
+    // var tp = new TitlePane({title:"I'm a TitlePane", content: "Collapse me!"});
+    // dom.byId("holder").appendChild(tp.domNode);
+    // tp.startup();
+
+
+		for (i = 0; i < 5; i++) {
+
+			var tp = new TitlePane({title:"I'm a TitlePane", content: "Collapse me!"});
+			var node = document.createElement("LI");                 // Create a <li> node
+			var textnode = document.createTextNode("Water");         // Create a text node
+			node.appendChild(textnode);
+
+			// Append the text to <li>
+			// var mydiv = dojo.create('DIV');
+			// node.placeAt(tp.domNode);
+			// tp.set('content',"node.domNode")
+			// domConstruct.place("<a href='foo.html' title='Goto FOO!'>link</a>",tp.domNode);
+			// domConstruct.place(node,tp.domNode);
+
+
+			// tp.domNode.appendChild(node);
+			var z = document.createElement('div');
+			z.innerHTML = 'test satu dua tiga<';
+
+
+			var programmatic = new dojox.layout.TableContainer(
+			{
+			  cols: 2,
+			  customClass:"labelsAndValues",
+			  "labelWidth": "150"
+			}).placeAt(tp);
+
+				// Create four text boxes
+	var text1 = new dijit.form.TextBox({label: "ProgText 1"});
+	var text2 = new dijit.form.TextBox({label: "ProgText 2"});
+	var text3 = new dijit.form.TextBox({label: "ProgText 3"});
+	var text4 = new dijit.form.TextBox({label: "ProgText 4"});
+
+	// Add the four text boxes to the TableContainer
+	programmatic.addChild();
+	programmatic.addChild(text2);
+	programmatic.addChild(text3);
+	programmatic.addChild(text4);
+		 programmatic.startup();
+
+	    dom.byId("holder").appendChild(tp.domNode);
+
+	    tp.startup();
+		}
+
+
+});
+	</script>
+</head>
+<body class="claro">
+    <div id="holder"></div>
+</body>
+</html>
